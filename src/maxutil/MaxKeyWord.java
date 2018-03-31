@@ -1,24 +1,29 @@
 package maxutil;
 
 /**
- * This class is used to handle things with key words in 'C'
+ * 这个类用于抽象实验要求中规定的关键字
  * @author Erwin Smith
  * 
  */
-public class MaxKeyWord implements WordMessage{
+public class MaxKeyWord extends WordMessage{
 	
-	private String keyWord;
 	
-	public MaxKeyWord(String keyWord) {
-		this.keyWord = keyWord;
+	
+
+	public MaxKeyWord(String word) {
+		super(word);
 	}
 
-	
-
+	/**
+	 * 按规定形式输出单词的信息
+	 */
 	public String showMessage() {
-		return 	"(" + Constant.getMyKeyWords().get(keyWord) + "," + keyWord + ")";
+		return 	"(" + Constant.getMyKeyWords().get(getWord()) + "," + getWord() + ")";
 	}
 
+	/**
+	 * 得到单词的大类码（定义在Constant中），包括关键字、标识符、数字三类
+	 */
 	public int getCodeType() {
 		return Constant.KEY_WORD_TYPE;
 	}
@@ -27,15 +32,9 @@ public class MaxKeyWord implements WordMessage{
 	 * 得到种别码
 	 */
 	public int getSyn() {
-		return Constant.getMyKeyWords().get(keyWord);
+		return Constant.getMyKeyWords().get(getWord());
 	}
 
-	public String getKeyWord() {
-		return keyWord;
-	}
 	
-	public void setKeyWord(String keyWord) {
-		this.keyWord = keyWord;
-	}
 	
 }

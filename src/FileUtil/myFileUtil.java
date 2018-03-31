@@ -50,9 +50,10 @@ public class myFileUtil {
 	 * 用于从指定路径读取多行文件到一个List<String>中
 	 * @param filePath 文件的绝对路径
 	 * @return	List形式的String集合
+	 * @throws IOException 
 	 */
-	public static List<String> readFromFile(String filePath){
-		FileReader fr;
+	public static List<String> readFromFile(String filePath) throws IOException{
+		FileReader fr = null;
 		try {
 			fr = new FileReader(filePath);
 			BufferedReader br = new BufferedReader(fr);
@@ -66,8 +67,12 @@ public class myFileUtil {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if(null != fr){
+				fr.close();
+				
+			}
 		}
 		return null;
 	
@@ -132,8 +137,9 @@ public class myFileUtil {
 	/**
 	 * 这个方法用于测试
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		//测试读取文件并去除注释
 		System.out.println(Lexical.separate(myPretreatmentRmNotes(readFromFile("G://test.txt"))));
 	}

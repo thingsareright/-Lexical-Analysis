@@ -4,20 +4,23 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * This class gives a few definitions for type of words.
+ * 这个类规定了许多常量，包括ID和NUM的种别码，还有关键字、数字串、操作符和界符的大类别码
  * @author Erwin Smith
  *
  */
 public class Constant {
 
+	/**
+	 * 定义一下各个类别的大类别码
+	 */
 	public static final int KEY_WORD_TYPE = 1;
 	public static final int OPERATOR_OR_BOUNDARY_IDENTIFIER_TYPE = 2;
-	public static final int ID = 3;
-	public static final int NUM = 4;
+	public static final int ID = 25;
+	public static final int NUM = 26;	//上面这两个是按照种别码设定的
 	public static final int SPACE_TYPE = 5;
 	public static final int WRONG = 0;
 	
-	
+	//关键字集合容器
 	private static HashMap<String, Integer> myKeyWords = new HashMap<String, Integer>();
 	
 	static {
@@ -48,7 +51,7 @@ public class Constant {
 		myKeyWords.put("default",39);
 	}
 	
-	
+	//操作符和界符的集合容器
 	private static HashMap<String, Integer> myOperatorIdentifier = new HashMap<String, Integer>();
 	
 	static {
@@ -79,9 +82,9 @@ public class Constant {
 		return myOperatorIdentifier;
 	}
 	/**
-	 * This method is to return the word type!
-	 * @param word
-	 * @return the code type for the word.
+	 * 返回单词的大类
+	 * @param 单个字符串形式的单词
+	 * @return Constant类中设定的单词大类
 	 */
 	public static int getWordType(String word) {
 		if(null == word){
@@ -106,9 +109,9 @@ public class Constant {
 	}
 	
 	/**
-	 * This method is used to judge is the word a ID
-	 * @param word
-	 * @return
+	 * 用于判断单词是否是一个ID
+	 * @param 单词
+	 * @return 如果这个单词是ID（标识符），返回true，否则返回false
 	 */
 	public static boolean isWordID(String word){
 		char[] wordChars = word.toCharArray();
@@ -128,9 +131,9 @@ public class Constant {
 	}
 	
 	/**
-	 * This method is used to judge is the word a NUM
-	 * @param word
-	 * @return
+	 * 用于判断这个单词是否是一个数字串
+	 * @param 单词
+	 * @return  如果参数单词是数字串那么返回true，否则返回false
 	 */
 	public static boolean isWordNUM(String word){
 		char[] wordChars = word.toCharArray();

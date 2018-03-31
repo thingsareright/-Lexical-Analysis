@@ -1,32 +1,23 @@
 package maxutil;
 
 /**
- * This class provide the way to show the operator identifier.
+ * 这个类用以抽象操作符和界符
  * @author Erwin Smith
  *
  */
-public class MaxOperatorIdentifier implements WordMessage{
+public class MaxOperatorIdentifier extends WordMessage{
 	
-	private String operator;
-	
-	public MaxOperatorIdentifier(String operator) {
-		this.operator = operator;
-	}
-	
-	public String getOperator() {
-		return operator;
-	}
-	
-	public void setOperator(String operator) {
-		this.operator = operator;
+	public MaxOperatorIdentifier(String word) {
+		super(word);
 	}
 
+
 	public String showMessage() {
-		return 	"(" + Constant.getMyOperatorIdentifier().get(operator) + "," + operator + ")";
+		return 	"(" + Constant.getMyOperatorIdentifier().get(getWord()) + "," + getWord() + ")";
 	}
 
 	public int getSyn() {
-		return Constant.getMyOperatorIdentifier().get(operator);
+		return Constant.getMyOperatorIdentifier().get(getWord());
 	}
 
 	public int getCodeType() {

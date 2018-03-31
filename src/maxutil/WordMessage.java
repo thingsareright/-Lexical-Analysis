@@ -1,28 +1,45 @@
 package maxutil;
 
 /**
- * This is the interface dor words. This class has a few methods to handle with need for word.
+ * 这个抽象类是对单词的总的抽象
  * @author Erwin Smith
  *
  */
-public interface WordMessage {
+public abstract class WordMessage {
+	
+	//单词的字符串形式的表达
+	private String word;
+	
+	public WordMessage(String word) {
+		this.word = word;
+	}
 	
 	/**
-	 * This method is used to show the species code for a word such as   "(1, main)" or "(26,12)".
-	 * @return the string which would be printed to the console 
+	 * 这个方法用于按照要求返回展示一个单词的种别码以及其值的字符串
+	 * @return 符合输出要求的字符串
 	 */
-	String showMessage();
+	public abstract String showMessage();
 	
 	/**
-	 * This method is used to return the species code for a word.
-	 * @return the species code for the word which had implemented this interface
+	 * 返回单词的种别码
+	 * @return 单词的种别码
 	 */
-	int getSyn();
+	public abstract int getSyn();
 
 	/**
-	 * This method is used to return the type code for a word, which has an exact definition in the Constant Class;
-	 * @return the species code for the word which had implemented this interface
+	 * 返回单词所属的大类分别码
+	 * @return 大类分别码
 	 */
-	int getCodeType();
+	public abstract int getCodeType();
+	
+	public String getWord() {
+		return word;
+	}
+	
+	public void setWord(String word) {
+		this.word = word;
+	}
+	
+	
 	
 }

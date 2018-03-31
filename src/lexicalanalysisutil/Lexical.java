@@ -17,7 +17,7 @@ public class Lexical {
 	 */
 	public static void ledicalAnalyize(String input){
 		List<String> seperatedString = separate(input);	//获取所有的单个单词组成的数组列表
-		WordMessage message = null;	//建立接口，准备上转型对象
+		WordMessage message = null;	//准备上转型对象
 		//下面对每个字符串，进行分类和按照题目要求输出种别码和其它内容
 		for(int i=0; i<seperatedString.size(); i++) {
 			String single = seperatedString.get(i);

@@ -24,7 +24,8 @@ public class Lexical {
 			int flag = Constant.getWordType(single);
 			switch (flag) {
 				case Constant.ID:
-					System.out.println("(25," + single + ")");
+					message = new ID(single);
+					System.out.println(message.showMessage());
 					break;
 				case Constant.KEY_WORD_TYPE:
 					message = new MaxKeyWord(single);
@@ -35,7 +36,8 @@ public class Lexical {
 					System.out.println(message.showMessage());
 					break;
 				case Constant.NUM:
-					System.out.println("(26," + single + ")");
+					message = new NUM(single);
+					System.out.println(message.showMessage());
 					break;
 				
 				default:

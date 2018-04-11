@@ -11,13 +11,15 @@ import maxutil.*;
 public class Lexical {
 	
 	/**
-	 * 进行词法分析，输出词法分析的结果
+	 * 进行词法分析，以List形式的String返回词法分析的结果
 	 * @param input
 	 * @return
 	 */
-	public static void ledicalAnalyize(String input){
+	public static List<String> ledicalAnalyize(String input){
 		List<String> seperatedString = separate(input);	//获取所有的单个单词组成的数组列表
 		WordMessage message = null;	//准备上转型对象
+		//构建返回的种别码什么的，字符串数组
+		List<String> results = new ArrayList<String>();
 		//下面对每个字符串，进行分类和按照题目要求输出种别码和其它内容
 		for(int i=0; i<seperatedString.size(); i++) {
 			String single = seperatedString.get(i);
@@ -25,26 +27,26 @@ public class Lexical {
 			switch (flag) {
 				case Constant.ID:
 					message = new ID(single);
-					System.out.println(message.showMessage());
+					results.add(message.showMessage());
 					break;
 				case Constant.KEY_WORD_TYPE:
 					message = new MaxKeyWord(single);
-					System.out.println(message.showMessage());
+					results.add(message.showMessage());
 					break;
 				case Constant.OPERATOR_OR_BOUNDARY_IDENTIFIER_TYPE:
 					message = new MaxOperatorIdentifier(single);
-					System.out.println(message.showMessage());
+					results.add(message.showMessage());
 					break;
 				case Constant.NUM:
 					message = new NUM(single);
-					System.out.println(message.showMessage());
+					results.add(message.showMessage());
 					break;
 				
 				default:
 					break;
 			}
 		}
-		return ;
+		return results;
 	}
 	
 	/**
